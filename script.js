@@ -1,29 +1,28 @@
 
-document.querySelector('#button').addEventListener('click', promptMe)
-
-function promptMe () {
-    const userInput = prompt("How many squares in your grid?");
-    if (userInput != null && userInput <= 100) {
-         squares = userInput
-    } else {
-        alert ('TOO MUCH, try a lower number of squares')
-    }
-const container = document.getElementById('container');
-
-const docFrag = document.createDocumentFragment();
-const gridNumber = [];
-    for (var i = 1; i <= Math.pow(squares,2); i++) {
-       gridNumber.push(i);
-    }
     
+document.querySelector('#button').addEventListener('click', () => {
 
-gridNumber.forEach((grid) => {
-    const div = document.createElement('div')
-    div.setAttribute('class', 'grid');
-    docFrag.appendChild(div);
+const container = document.getElementById('container');
+const docFrag = document.createDocumentFragment();
+let userInput = prompt("How many squares in your grid?");
+let gridNumber = [];
+
+
+    if (userInput != null && userInput <= 100) {
+
+    for (let i = 1; i <= Math.pow(userInput,2); i++) {
+            gridNumber.push(i);
+        }
+            gridNumber.forEach(() => {
+                let div = document.createElement('div');
+                div.setAttribute('id','grid');
+                div.style.width = `calc(500px/${userInput})`;
+                div.style.height = `calc(500px/${userInput})`;
+
+                docFrag.appendChild(div);
+            })
+                container.replaceChildren(docFrag);
+    } else {
+        alert('Try again')
+    }
 });
-
-container.appendChild(docFrag);
-}
-
-
