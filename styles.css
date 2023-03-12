@@ -1,6 +1,6 @@
 #container {
     display: flex;
-    background: rgb(218, 215, 215);
+    background: black;
     flex-wrap: wrap;
     width: 500px;
     height: 500px;
@@ -11,11 +11,6 @@
 #grid{
     flex-wrap: wrap;
     box-sizing: border-box;
-    border: 2px solid black;
-   
+    border: 1px solid grey;
 }
-#grid:hover {
-    background-color: yellow;
-  }
 
-  
