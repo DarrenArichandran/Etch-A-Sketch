@@ -1,15 +1,29 @@
+
+document.querySelector('#button').addEventListener('click', promptMe)
+
+function promptMe () {
+    const userInput = prompt("How many squares in your grid?");
+    if (userInput != null && userInput <= 100) {
+         squares = userInput
+    } else {
+        alert ('TOO MUCH, try a lower number of squares')
+    }
 const container = document.getElementById('container');
 
 const docFrag = document.createDocumentFragment();
-const gridNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+const gridNumber = [];
+    for (var i = 1; i <= Math.pow(squares,2); i++) {
+       gridNumber.push(i);
+    }
+    
 
 gridNumber.forEach((grid) => {
     const div = document.createElement('div')
-    div.textContent = grid;
-    div.setAttribute('id', 'grid');
+    div.setAttribute('class', 'grid');
     docFrag.appendChild(div);
 });
-container.appendChild(docFrag);
 
+container.appendChild(docFrag);
+}
 
 
